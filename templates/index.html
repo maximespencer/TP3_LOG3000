@@ -7,11 +7,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<!-- Conteneur principal de la calculatrice (style : static/style.css). -->
 <div class="calculator">
    <h1>Flask Calculator</h1>
+   <!-- Le formulaire envoie le contenu de l'écran (champ "display") à la route "/"
+        de app.py ; le résultat revient dans la même page via {{ result }}. -->
    <form method="POST">
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
+      <!-- Clavier 4x4 : chiffres, opérateurs (classe "operator"), C (effacer) et = (soumettre). -->
       <div class="buttons">
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
          <button type="button" class="btn" onclick="appendToDisplay('2')">02</button>
@@ -37,11 +41,17 @@
 </div>
 
 <script>
+   /**
+    * Ajoute un caractère (chiffre ou opérateur) à la fin de l'écran.
+    * Le champ est en lecture seule : la saisie passe uniquement par les boutons.
+    * @param {string} value - Caractère à ajouter.
+    */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
       display.value += value;
    }
 
+   /** Vide l'écran de la calculatrice (bouton C). Aucune requête au serveur. */
    function clearDisplay() {
       document.getElementById('display').value = '';
    }

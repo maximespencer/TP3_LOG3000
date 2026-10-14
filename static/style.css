@@ -1,3 +1,10 @@
+/*
+ * Feuille de style de la calculatrice (templates/index.html).
+ * Thème sombre, clavier en grille 4 colonnes ; la classe .operator
+ * distingue visuellement les touches d'opération et "=".
+ */
+
+/* Centre la calculatrice verticalement et horizontalement dans la fenêtre. */
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
@@ -37,6 +44,7 @@ h1 {
    color: #fff;
 }
 
+/* Grille 4x4 du clavier, dans le même ordre que les boutons du HTML. */
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
@@ -67,6 +75,7 @@ h1 {
    background-color: #e68a00;
 }
 
+/* États :active déclarés après :hover pour avoir priorité lors du clic. */
 .btn:active {
    background-color: #444;
 }
