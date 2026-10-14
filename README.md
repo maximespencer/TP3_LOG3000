@@ -1,7 +1,7 @@
 # Calculatrice Flask — LOG3000 TP3
 
-**Équipe :** <NUMÉRO D'ÉQUIPE>
-**Membres :** <Nom 1>, <Nom 2>, <Nom 3>
+**Équipe :** 
+**Membres :** 
 
 ## 1. But et portée du projet
 
