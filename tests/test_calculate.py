@@ -18,15 +18,18 @@ def test_valid_expressions(expr, expected):
 
 
 @pytest.mark.parametrize("expr, expected", [
-    ("-3+5", 2),      # résultat négatif réutilisé comme premier opérande
-    ("-3.0*2", -6),
-    ("5*-2", -10),    # opérande de droite négatif
-    ("8--2", 10),
+    ("-3+5", 2),        # résultat négatif réutilisé comme premier opérande
+    ("-3.0+1.5", -1.5),
+    ("5+-2", 3),        # opérande de droite négatif
+    ("-1+-1", -2),      # deux opérandes négatifs
+    ("1e-05+1", 1.00001),  # le "-" de la notation scientifique n'est pas un opérateur
 ])
 def test_negative_operands(expr, expected):
     """Un signe ``-`` en tête d'opérande est un signe, pas un second opérateur.
 
     Cas réel : après ``2-5 = -3.0``, l'utilisateur enchaîne ``+5`` à l'écran.
+    Seule l'addition est utilisée pour isoler l'analyse de l'expression du
+    comportement des autres opérateurs (testés dans ``test_operators.py``).
     """
     assert calculate(expr) == pytest.approx(expected)
 

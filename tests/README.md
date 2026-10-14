@@ -37,7 +37,7 @@ python -m pytest -k negative                        # tests dont le nom contient
 
 ## Historique : tests en échec à l'origine
 
-La première exécution sur le code fourni donnait **15 échecs / 30 tests**.
+La première exécution sur le code fourni donnait **16 échecs / 31 tests**.
 Chaque bogue a fait l'objet d'une issue GitHub et d'une branche de correction :
 
 | Issue | Bogue | Tests qui échouaient | Branche |
@@ -46,4 +46,4 @@ Chaque bogue a fait l'objet d'une issue GitHub et d'une branche de correction :
 | #2 | `multiply` calcule `a ** b` | `test_multiply`, `test_valid_expressions[6*7-42]`, `test_post_displays_result[6*7-42.0]` | `fix/2-multiply-uses-power` |
 | #3 | `divide` fait une division entière `//` | `test_divide_is_true_division`, `test_valid_expressions[9/2-4.5]`, `test_post_displays_result[9/2-4.5]` | `fix/3-divide-floor-division` |
 | #4 | Libellés de boutons erronés (`02`, `88`, `*` et `/` vides) | `test_button_labels_match_their_action`, `test_keypad_has_all_keys` | `fix/4-keypad-button-labels` |
-| #5 | Opérandes négatifs refusés (`-3+5` → erreur) | `test_negative_operands[*]` (4 cas) | `fix/5-negative-operands` |
+| #5 | Opérandes négatifs refusés (`-3+5` → erreur) | `test_negative_operands[*]` (5 cas) | `fix/5-negative-operands` |
