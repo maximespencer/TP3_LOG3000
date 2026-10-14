@@ -27,7 +27,9 @@ def calculate(expr: str):
     """Évalue une expression binaire simple de la forme ``<nombre><op><nombre>``.
 
     Les espaces sont ignorés. Une seule opération est permise par expression
-    (pas de priorité d'opérateurs ni de parenthèses).
+    (pas de priorité d'opérateurs ni de parenthèses). Les opérandes peuvent
+    être signés (``"-3+5"``, ``"5*-2"``), ce qui permet de réutiliser un
+    résultat négatif affiché à l'écran.
 
     Args:
         expr (str): L'expression saisie, par exemple ``"12.5 * 4"``.
@@ -50,7 +52,11 @@ def calculate(expr: str):
     op_char = None
 
     for i, ch in enumerate(s):
-        if ch in OPS:
+        # Un symbole n'est l'opérateur binaire que s'il suit la fin d'un
+        # nombre (chiffre ou point). Sinon (début de chaîne, après un autre
+        # opérateur ou après le "e" d'une notation scientifique), c'est le
+        # signe de l'opérande : "-3+5", "5*-2", "1e-05+1".
+        if ch in OPS and i > 0 and (s[i-1].isdigit() or s[i-1] == '.'):
             if op_pos != -1:
                 raise ValueError("only one operator is allowed")
             op_pos = i
