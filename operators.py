@@ -30,7 +30,7 @@ def subtract(a, b):
     Returns:
         float: La différence ``a - b``.
     """
-    return b - a
+    return a - b
 
 
 def multiply(a, b):
@@ -43,7 +43,7 @@ def multiply(a, b):
     Returns:
         float: Le produit ``a * b``.
     """
-    return a ** b
+    return a * b
 
 
 def divide(a, b):
