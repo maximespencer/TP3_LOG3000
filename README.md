@@ -1,7 +1,7 @@
 # Calculatrice Flask — LOG3000 TP3
 
-**Équipe :** 
-**Membres :** 
+**Équipe : 26 ** 
+**Membres : Victor Popovic, Hubert Khouzam et Maxime Spencer** 
 
 ## 1. But et portée du projet
 
